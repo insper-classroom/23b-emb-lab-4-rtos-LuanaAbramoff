@@ -23,19 +23,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_abbrev 000046dd  00000000  00000000  000419c0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000af9a  00000000  00000000  0004609d  2**0
+ 10 .debug_loc    0000af8e  00000000  00000000  0004609d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_aranges 00000eb0  00000000  00000000  00051037  2**0
+ 11 .debug_aranges 00000eb0  00000000  00000000  0005102b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00002020  00000000  00000000  00051ee7  2**0
+ 12 .debug_ranges 00002020  00000000  00000000  00051edb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  00021ebe  00000000  00000000  00053f07  2**0
+ 13 .debug_macro  00021ebe  00000000  00000000  00053efb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_line   000120df  00000000  00000000  00075dc5  2**0
+ 14 .debug_line   000120de  00000000  00000000  00075db9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_str    0009445a  00000000  00000000  00087ea4  2**0
+ 15 .debug_str    0009445a  00000000  00000000  00087e97  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_frame  000033d0  00000000  00000000  0011c300  2**2
+ 16 .debug_frame  000033d0  00000000  00000000  0011c2f4  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -7113,144 +7113,147 @@ static void task_proc(void *pvParameters) {
   402c26:	b08f      	sub	sp, #60	; 0x3c
 	config_AFEC_pot(AFEC_POT, AFEC_POT_ID, AFEC_POT_CHANNEL, AFEC_pot_callback);
   402c28:	4798      	blx	r3
-	xTimerStart(xTimer, 0);
-  402c2a:	f04f 0b00 	mov.w	fp, #0
 	xTimer = xTimerCreate(/* Just a text name, not used by the RTOS
-  402c2e:	4939      	ldr	r1, [pc, #228]	; (402d14 <task_proc+0xf4>)
-  402c30:	2201      	movs	r2, #1
-  402c32:	465b      	mov	r3, fp
-  402c34:	4c38      	ldr	r4, [pc, #224]	; (402d18 <task_proc+0xf8>)
-  402c36:	9100      	str	r1, [sp, #0]
-  402c38:	2164      	movs	r1, #100	; 0x64
-  402c3a:	4838      	ldr	r0, [pc, #224]	; (402d1c <task_proc+0xfc>)
+  402c2a:	493a      	ldr	r1, [pc, #232]	; (402d14 <task_proc+0xf4>)
+  402c2c:	2300      	movs	r3, #0
+  402c2e:	2201      	movs	r2, #1
+  402c30:	9100      	str	r1, [sp, #0]
+  402c32:	2164      	movs	r1, #100	; 0x64
+  402c34:	4d38      	ldr	r5, [pc, #224]	; (402d18 <task_proc+0xf8>)
 	int contador = 0;
-  402c3c:	465f      	mov	r7, fp
+  402c36:	461c      	mov	r4, r3
 	xTimer = xTimerCreate(/* Just a text name, not used by the RTOS
-  402c3e:	47a0      	blx	r4
-  402c40:	4a37      	ldr	r2, [pc, #220]	; (402d20 <task_proc+0x100>)
-  402c42:	4605      	mov	r5, r0
+  402c38:	4838      	ldr	r0, [pc, #224]	; (402d1c <task_proc+0xfc>)
+  402c3a:	47a8      	blx	r5
+  402c3c:	4a38      	ldr	r2, [pc, #224]	; (402d20 <task_proc+0x100>)
+  402c3e:	4606      	mov	r6, r0
 	xTimerStart(xTimer, 0);
-  402c44:	4b37      	ldr	r3, [pc, #220]	; (402d24 <task_proc+0x104>)
+  402c40:	4b38      	ldr	r3, [pc, #224]	; (402d24 <task_proc+0x104>)
 	xTimer = xTimerCreate(/* Just a text name, not used by the RTOS
-  402c46:	6010      	str	r0, [r2, #0]
+  402c42:	6010      	str	r0, [r2, #0]
 	xTimerStart(xTimer, 0);
-  402c48:	4798      	blx	r3
-  402c4a:	f8cd b000 	str.w	fp, [sp]
-  402c4e:	4602      	mov	r2, r0
-  402c50:	465b      	mov	r3, fp
-  402c52:	4628      	mov	r0, r5
-  402c54:	2101      	movs	r1, #1
-  402c56:	4d34      	ldr	r5, [pc, #208]	; (402d28 <task_proc+0x108>)
-  402c58:	47a8      	blx	r5
-  402c5a:	4c34      	ldr	r4, [pc, #208]	; (402d2c <task_proc+0x10c>)
-  402c5c:	4d34      	ldr	r5, [pc, #208]	; (402d30 <task_proc+0x110>)
-  402c5e:	f8df a0d8 	ldr.w	sl, [pc, #216]	; 402d38 <task_proc+0x118>
-  402c62:	f8df 90d8 	ldr.w	r9, [pc, #216]	; 402d3c <task_proc+0x11c>
+  402c44:	4798      	blx	r3
+  402c46:	4623      	mov	r3, r4
+  402c48:	4602      	mov	r2, r0
+  402c4a:	9400      	str	r4, [sp, #0]
+  402c4c:	4630      	mov	r0, r6
+  402c4e:	2101      	movs	r1, #1
+  402c50:	4e35      	ldr	r6, [pc, #212]	; (402d28 <task_proc+0x108>)
+  402c52:	47b0      	blx	r6
+		if (xQueueReceive(xQueueADC, &(adc), 1000)) {
+  402c54:	46a3      	mov	fp, r4
+  402c56:	4d35      	ldr	r5, [pc, #212]	; (402d2c <task_proc+0x10c>)
+  402c58:	4e35      	ldr	r6, [pc, #212]	; (402d30 <task_proc+0x110>)
+  402c5a:	f8df a0dc 	ldr.w	sl, [pc, #220]	; 402d38 <task_proc+0x118>
+  402c5e:	f8df 90dc 	ldr.w	r9, [pc, #220]	; 402d3c <task_proc+0x11c>
 			printf("Nao chegou um novo dado em 1 segundo");
-  402c66:	f8df 80d8 	ldr.w	r8, [pc, #216]	; 402d40 <task_proc+0x120>
+  402c62:	f8df 80dc 	ldr.w	r8, [pc, #220]	; 402d40 <task_proc+0x120>
 				media += (v_media[9]/10 - v_media[0]/10);
-  402c6a:	4e32      	ldr	r6, [pc, #200]	; (402d34 <task_proc+0x114>)
+  402c66:	4f33      	ldr	r7, [pc, #204]	; (402d34 <task_proc+0x114>)
 	int media = 0;
-  402c6c:	f8cd b00c 	str.w	fp, [sp, #12]
-  402c70:	e008      	b.n	402c84 <task_proc+0x64>
+  402c68:	9403      	str	r4, [sp, #12]
+  402c6a:	e008      	b.n	402c7e <task_proc+0x5e>
 			if (contador == 10){
-  402c72:	2f0a      	cmp	r7, #10
-  402c74:	d011      	beq.n	402c9a <task_proc+0x7a>
+  402c6c:	2c0a      	cmp	r4, #10
+  402c6e:	d011      	beq.n	402c94 <task_proc+0x74>
 			v_media[contador]=adc.value;
-  402c76:	ab0e      	add	r3, sp, #56	; 0x38
-  402c78:	9a02      	ldr	r2, [sp, #8]
-  402c7a:	eb03 0387 	add.w	r3, r3, r7, lsl #2
-  402c7e:	3701      	adds	r7, #1
-  402c80:	f843 2c28 	str.w	r2, [r3, #-40]
+  402c70:	ab0e      	add	r3, sp, #56	; 0x38
+  402c72:	9a02      	ldr	r2, [sp, #8]
+  402c74:	eb03 0384 	add.w	r3, r3, r4, lsl #2
+  402c78:	3401      	adds	r4, #1
+  402c7a:	f843 2c28 	str.w	r2, [r3, #-40]
 		if (xQueueReceive(xQueueADC, &(adc), 1000)) {
-  402c84:	2300      	movs	r3, #0
-  402c86:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
-  402c8a:	a902      	add	r1, sp, #8
-  402c8c:	6820      	ldr	r0, [r4, #0]
-  402c8e:	47a8      	blx	r5
-  402c90:	2800      	cmp	r0, #0
-  402c92:	d1ee      	bne.n	402c72 <task_proc+0x52>
+  402c7e:	2300      	movs	r3, #0
+  402c80:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  402c84:	a902      	add	r1, sp, #8
+  402c86:	6828      	ldr	r0, [r5, #0]
+  402c88:	47b0      	blx	r6
+  402c8a:	2800      	cmp	r0, #0
+  402c8c:	d1ee      	bne.n	402c6c <task_proc+0x4c>
 			printf("Nao chegou um novo dado em 1 segundo");
-  402c94:	4640      	mov	r0, r8
-  402c96:	47c8      	blx	r9
-  402c98:	e7f4      	b.n	402c84 <task_proc+0x64>
-  402c9a:	9a03      	ldr	r2, [sp, #12]
-  402c9c:	ab04      	add	r3, sp, #16
-  402c9e:	a80e      	add	r0, sp, #56	; 0x38
+  402c8e:	4640      	mov	r0, r8
+  402c90:	47c8      	blx	r9
+  402c92:	e7f4      	b.n	402c7e <task_proc+0x5e>
+  402c94:	9a03      	ldr	r2, [sp, #12]
+  402c96:	ab04      	add	r3, sp, #16
+  402c98:	a80e      	add	r0, sp, #56	; 0x38
 					media+= v_media[i];
-  402ca0:	f853 1b04 	ldr.w	r1, [r3], #4
+  402c9a:	f853 1b04 	ldr.w	r1, [r3], #4
 				for(int i =0; i<10; i++){
-  402ca4:	4283      	cmp	r3, r0
+  402c9e:	4283      	cmp	r3, r0
 					media+= v_media[i];
-  402ca6:	440a      	add	r2, r1
+  402ca0:	440a      	add	r2, r1
 				for(int i =0; i<10; i++){
-  402ca8:	d1fa      	bne.n	402ca0 <task_proc+0x80>
+  402ca2:	d1fa      	bne.n	402c9a <task_proc+0x7a>
 				media += (v_media[9]/10 - v_media[0]/10);
-  402caa:	9f0d      	ldr	r7, [sp, #52]	; 0x34
+  402ca4:	9c0d      	ldr	r4, [sp, #52]	; 0x34
 				media = media/10;
-  402cac:	fb86 3002 	smull	r3, r0, r6, r2
+  402ca6:	fb87 3002 	smull	r3, r0, r7, r2
 				media += (v_media[9]/10 - v_media[0]/10);
-  402cb0:	9b04      	ldr	r3, [sp, #16]
+  402caa:	9b04      	ldr	r3, [sp, #16]
 				media = media/10;
-  402cb2:	17d2      	asrs	r2, r2, #31
+  402cac:	17d2      	asrs	r2, r2, #31
 				media += (v_media[9]/10 - v_media[0]/10);
-  402cb4:	fb86 1e07 	smull	r1, lr, r6, r7
-  402cb8:	17ff      	asrs	r7, r7, #31
-  402cba:	fb86 c103 	smull	ip, r1, r6, r3
-  402cbe:	17db      	asrs	r3, r3, #31
-  402cc0:	ebc7 07ae 	rsb	r7, r7, lr, asr #2
-  402cc4:	eba3 01a1 	sub.w	r1, r3, r1, asr #2
+  402cae:	fb87 1c04 	smull	r1, ip, r7, r4
+  402cb2:	17e4      	asrs	r4, r4, #31
+  402cb4:	fb87 1e03 	smull	r1, lr, r7, r3
+  402cb8:	17db      	asrs	r3, r3, #31
+  402cba:	ebc4 04ac 	rsb	r4, r4, ip, asr #2
+  402cbe:	eba3 01ae 	sub.w	r1, r3, lr, asr #2
 				xQueueSend(xQueueADC, &media,10);
-  402cc8:	2300      	movs	r3, #0
+  402cc2:	2300      	movs	r3, #0
 				media = media/10;
-  402cca:	ebc2 00a0 	rsb	r0, r2, r0, asr #2
+  402cc4:	ebc2 00a0 	rsb	r0, r2, r0, asr #2
 				xQueueSend(xQueueADC, &media,10);
-  402cce:	220a      	movs	r2, #10
+  402cc8:	220a      	movs	r2, #10
 				media += (v_media[9]/10 - v_media[0]/10);
-  402cd0:	440f      	add	r7, r1
+  402cca:	440c      	add	r4, r1
 				xQueueSend(xQueueADC, &media,10);
-  402cd2:	a903      	add	r1, sp, #12
+  402ccc:	a903      	add	r1, sp, #12
 				media += (v_media[9]/10 - v_media[0]/10);
-  402cd4:	4407      	add	r7, r0
+  402cce:	4404      	add	r4, r0
 				xQueueSend(xQueueADC, &media,10);
-  402cd6:	6820      	ldr	r0, [r4, #0]
+  402cd0:	6828      	ldr	r0, [r5, #0]
 				media += (v_media[9]/10 - v_media[0]/10);
-  402cd8:	9703      	str	r7, [sp, #12]
+  402cd2:	9403      	str	r4, [sp, #12]
 				xQueueSend(xQueueADC, &media,10);
-  402cda:	47d0      	blx	sl
+  402cd4:	47d0      	blx	sl
 			v_media[contador]=adc.value;
-  402cdc:	9f02      	ldr	r7, [sp, #8]
+  402cd6:	9c02      	ldr	r4, [sp, #8]
 		if (xQueueReceive(xQueueADC, &(adc), 1000)) {
-  402cde:	2300      	movs	r3, #0
-  402ce0:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
-  402ce4:	a902      	add	r1, sp, #8
-  402ce6:	6820      	ldr	r0, [r4, #0]
+  402cd8:	2300      	movs	r3, #0
+  402cda:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  402cde:	a902      	add	r1, sp, #8
+  402ce0:	6828      	ldr	r0, [r5, #0]
 			v_media[contador]=adc.value;
-  402ce8:	9704      	str	r7, [sp, #16]
+  402ce2:	9404      	str	r4, [sp, #16]
+				media = 0;
+  402ce4:	f8cd b00c 	str.w	fp, [sp, #12]
 		if (xQueueReceive(xQueueADC, &(adc), 1000)) {
-  402cea:	47a8      	blx	r5
-  402cec:	4607      	mov	r7, r0
-  402cee:	b108      	cbz	r0, 402cf4 <task_proc+0xd4>
-  402cf0:	2701      	movs	r7, #1
-  402cf2:	e7c0      	b.n	402c76 <task_proc+0x56>
+  402ce8:	47b0      	blx	r6
+  402cea:	4604      	mov	r4, r0
+  402cec:	b108      	cbz	r0, 402cf2 <task_proc+0xd2>
+  402cee:	2401      	movs	r4, #1
+  402cf0:	e7be      	b.n	402c70 <task_proc+0x50>
 			printf("Nao chegou um novo dado em 1 segundo");
-  402cf4:	4640      	mov	r0, r8
-  402cf6:	47c8      	blx	r9
+  402cf2:	4640      	mov	r0, r8
+  402cf4:	47c8      	blx	r9
 		if (xQueueReceive(xQueueADC, &(adc), 1000)) {
-  402cf8:	463b      	mov	r3, r7
-  402cfa:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
-  402cfe:	a902      	add	r1, sp, #8
-  402d00:	6820      	ldr	r0, [r4, #0]
-  402d02:	47a8      	blx	r5
-  402d04:	2800      	cmp	r0, #0
-  402d06:	d1f3      	bne.n	402cf0 <task_proc+0xd0>
+  402cf6:	4623      	mov	r3, r4
+  402cf8:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  402cfc:	a902      	add	r1, sp, #8
+  402cfe:	6828      	ldr	r0, [r5, #0]
+  402d00:	47b0      	blx	r6
+  402d02:	2800      	cmp	r0, #0
+  402d04:	d1f3      	bne.n	402cee <task_proc+0xce>
 			printf("Nao chegou um novo dado em 1 segundo");
-  402d08:	4640      	mov	r0, r8
+  402d06:	4640      	mov	r0, r8
 		if (xQueueReceive(xQueueADC, &(adc), 1000)) {
-  402d0a:	2701      	movs	r7, #1
+  402d08:	2401      	movs	r4, #1
 			printf("Nao chegou um novo dado em 1 segundo");
-  402d0c:	47c8      	blx	r9
-  402d0e:	e7b9      	b.n	402c84 <task_proc+0x64>
+  402d0a:	47c8      	blx	r9
+  402d0c:	e7b7      	b.n	402c7e <task_proc+0x5e>
+  402d0e:	bf00      	nop
   402d10:	00402b01 	.word	0x00402b01
   402d14:	00402915 	.word	0x00402915
   402d18:	004025a1 	.word	0x004025a1

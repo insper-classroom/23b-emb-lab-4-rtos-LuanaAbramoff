@@ -175,6 +175,7 @@ static void task_proc(void *pvParameters) {
 				media = media/10;
 				media += (v_media[9]/10 - v_media[0]/10);
 				xQueueSend(xQueueADC, &media,10);
+				media = 0;
 			}
 			v_media[contador]=adc.value;
 			contador++;
